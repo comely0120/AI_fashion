@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI_FASHION</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $("#cate").change(function(){
+            var state = $("#cate").val();
+            if (state == "auto"){
+                $("#cate2 > option").remove();
+                $("#id_category").val("{{ request.session.category }}");
+            }else if(state == "top"){
+                $("#cate2 > option").remove();
+                $("#cate2").append('<option value="">상의 선택</option>');
+                $("#cate2").append('<option value="long blouse_check">long blouse_check</option>');
+                $("#cate2").append('<option value="long blouse_none">long blouse_none</option>');
+                $("#cate2").append('<option value="long blouse_pattern">long blouse_pattern</option>');
+                $("#cate2").append('<option value="long shirt_check">long shirt_check</option>');
+                $("#cate2").append('<option value="long shirt_none">long shirt_none</option>');
+                $("#cate2").append('<option value="long shirt_pattern">long shirt_pattern</option>');
+                $("#cate2").append('<option value="long sleeve_none">long sleeve_none</option>');
+                $("#cate2").append('<option value="long sleeve_print">long sleeve_print</option>');
+                $("#cate2").append('<option value="long sleeve_stripe">long sleeve_stripe</option>');
+                $("#cate2").append('<option value="short blouse_check">short blouse_check</option>');
+                $("#cate2").append('<option value="short blouse_none">short blouse_none</option>');
+                $("#cate2").append('<option value="short blouse_pattern">short blouse_pattern</option>');
+                $("#cate2").append('<option value="short shirt_check">short shirt_check</option>');
+                $("#cate2").append('<option value="short shirt_none">short shirt_none</option>');
+                $("#cate2").append('<option value="short shirt_pattern">short shirt_pattern</option>');
+                $("#cate2").append('<option value="short sleeve_none">short sleeve_none</option>');
+                $("#cate2").append('<option value="short sleeve_print">short sleeve_print</option>');
+                $("#cate2").append('<option value="short sleeve_stripe">short sleeve_stripe</option>');
+                $("#cate2").append('<option value="sleeveless_none">sleeveless_none</option>');
+                $("#cate2").append('<option value="sleeveless_print">sleeveless_print</option>');
+                $("#cate2").append('<option value="sleeveless_stripe">sleeveless_stripe</option>');
+            }else if(state == "bottom"){
+                $("#cate2 > option").remove();
+                $("#cate2").append('<option value="">하의 선택</option>');
+                $("#cate2").append('<option value="long pants_jean">long pants_jean</option>');
+                $("#cate2").append('<option value="long pants_cotton">long pants_cotton</option>');
+                $("#cate2").append('<option value="long skirt_A">long skirt_A</option>');
+                $("#cate2").append('<option value="long skirt_asymmetric">long skirt_asymmetric</option>');
+                $("#cate2").append('<option value="long skirt_H">long skirt_H</option>');
+                $("#cate2").append('<option value="short pants_jean">short pants_jean</option>');
+                $("#cate2").append('<option value="short pants_cotton">short pants_cotton</option>');
+                $("#cate2").append('<option value="short skirt_A">short skirt_A</option>');
+                $("#cate2").append('<option value="short skirt_asymmetric">short skirt_asymmetric</option>');
+                $("#cate2").append('<option value="short skirt_H">short skirt_H</option>');
+            }else if(state == "onepice"){
+                $("#cate2 > option").remove();
+                $("#cate2").append('<option value="">원피스 선택</option>');
+                $("#cate2").append('<option value="long dress_long sleeves">long dress_long sleeves</option>');
+                $("#cate2").append('<option value="long dress_short sleeves">long dress_short sleeves</option>');
+                $("#cate2").append('<option value="short dress_long sleeves">short dress_long sleeves</option>');
+                $("#cate2").append('<option value="short dress_short sleeves">short dress_short sleeves</option>');
+            }
+
+
+        });
+
+        $("#cate2").change(function(){
+                $("#id_category").val($("#cate2").val());
+        });
+
+
+    });
+</script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Kalam&family=Hi+Melody&display=swap');
+      p1{
+          font-size : 2.5em;
+          font-family: 'Gugi', cursive;
+      }
+      p2{
+         font-size : 2em;
+         font-family: 'Hi Melody', cursive;
+      }
+      *{
+            box-sizing: border-box;
+        }
+       .btn1{
+            padding: 2px 50px;
+            margin: 2px 10px ;
+            color: #646363;
+            font-family: 'Kalam', cursive;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+            text-decoration: none;
+            display:inline-block;
+       }
+    .btn1::before {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            left: 0px;
+            width: 100%;
+            height: 2.3px;
+            background: #fbceb1;
+            text-decoration: none;
+            color : #fff;
+            display: block;
+            -webkit-transform-origin: left top;
+            -ms-transform-origin: left top;
+            transform-origin: left top;
+            -webkit-transform: scale(0, 1);
+            -ms-transform: scale(0, 1);
+            transform: scale(0, 1);
+            -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+            transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+    }
+
+    .btn1:hover::before {
+             text-decoration: none;
+            -webkit-transform-origin: right top;
+            -ms-transform-origin: right top;
+             transform-origin: right top;
+            -webkit-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+             transform: scale(1, 1)
+    }
+    a:link { color: black; text-decoration: none;}
+    a:visited { color: black; text-decoration: none;}
+    a:hover { color: black; text-decoration: underline; font-weight: 300; font-size : 1.3em;}
+        .box {
+
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            border: none;
+        }
+        .content {
+            display: flex; // content로 감싸고 flex를 줬습니다.
+            justify-content: center;
+        }
+
+   </style>
+</head>
+    <div class="container">
+        <div class="content">
+            <div class="box left">
+                <img src="/media/clothes/closets/logo.PNG"
+                     style="display: block; width:180px; height:100px; margin : 20px 80px 30px 220px" >
+            </div>
+            <div class="box center" style="text-align: center; margin : 40px 0px 30px 20px">
+                 <p1>  AI! 코디를 부탁해   </p1>
+                 <p>
+                    <a href="{% url 'cloth_list' %}" class="btn1" style="text-decoration:none; margin : 20px 5px  ">MY CLOSET</a>
+                    <a href="{% url 'upload_cloth' %}" class="btn1" style="text-decoration:none;">NEW CLOTH</a>
+                 </p>
+            </div>
+        </div>
+        <div class="box footer" style="text-align: center;">
+    <p2> 새로운 옷을 추가해 보세요 </p2>
+    <form method="post" enctype="multipart/form-data"  action="{% url 'save_cloth' %}">
+    {% csrf_token %}
+    <h5>
+        <label for="id_closet" style="font-family: 'Hi Melody', cursive;">선택한 파일:</label>
+        <label name="closet" id="id_closet" style="font-family: 'Hi Melody', cursive;">{{ request.session.closet_file }}</label>
+    </h5>
+    <img src = "../../media/clothes/closets/{{ request.session.closet_file }}" alt="{{ request.session.closet_file }}" style="width:200px;"/>
+    <p>
+        <label for="id_category" style=" font-size : 1.5em;font-family: 'Hi Melody', cursive;">Category:</label>
+        <input class="category_type" type="text" name="category" maxlength="50" required id="id_category" value="{{ request.session.category }}"
+            style="height : 30px; text-align: center; font-size : 1.4em; font-family: 'Hi Melody', cursive;"/>
+         <select name="cate" id="cate" style=" height : 30px; font-size : 1.3em; font-family: 'Hi Melody', cursive;">
+            <option value="auto">자동확인</option>
+            <option value="top">상의</option>
+            <option value="bottom">하의</option>
+            <option value="onepice">원피스</option>
+        </select>
+        <select name="cate2" id="cate2">
+        </select>
+    </p>
+    <input type="submit" class="btn btn-dark" value="저장" id="save"/>
+    </form>
+        </div>
+    </div>
+
+</div>>
+</html>
+

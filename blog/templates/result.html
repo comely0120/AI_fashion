@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI_FASHION</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function loadSelect(IMGSRC,NUM)
+        {
+            $('#select').html("<img src="+IMGSRC+" width='200'>");
+            $('#test').html("<input type=hidden name='category_num' value='"+NUM+"'/>");
+
+        }
+    </script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Kalam&family=Yeon+Sung&display=swap');
+      p1{
+          font-size : 3em;
+          font-family: 'Gugi', cursive;
+      }
+
+      *{
+            box-sizing: border-box;
+        }
+       .btn1{
+            padding: 2px 50px;
+            margin: 2px 10px ;
+            color: #646363;
+            font-family: 'Kalam', cursive;
+            text-transform: uppercase;
+            text-align: center;
+            position: relative;
+            text-decoration: none;
+            display:inline-block;
+       }
+    .btn1::before {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            left: 0px;
+            width: 100%;
+            height: 2.3px;
+            background: #fbceb1;
+            text-decoration: none;
+            color : #fff;
+            display: block;
+            -webkit-transform-origin: left top;
+            -ms-transform-origin: left top;
+            transform-origin: left top;
+            -webkit-transform: scale(0, 1);
+            -ms-transform: scale(0, 1);
+            transform: scale(0, 1);
+            -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+            transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+    }
+
+    .btn1:hover::before {
+             text-decoration: none;
+            -webkit-transform-origin: right top;
+            -ms-transform-origin: right top;
+             transform-origin: right top;
+            -webkit-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+             transform: scale(1, 1)
+    }
+    a:link { color: black; text-decoration: none;}
+    a:visited { color: black; text-decoration: none;}
+    a:hover { color: black; text-decoration: underline; font-weight: 300; font-size : 1.3em;}
+     header{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 18rem;
+            padding: 1rem;
+            background: white;
+            line-height: 4rem;
+            text-align: center;
+     }
+     main {
+             padding: 1rem;
+            height: 100%;
+     }
+     body {
+            padding-top: 280px;
+     }
+
+     body, html {
+              height: 200%;
+     }
+
+    .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .container div{
+        text-align: center;
+    }
+    .container div span{
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .middle{
+        margin-top: 20px;
+        width: 100%;
+        height: 500px;
+        position: relative;
+        text-align:center
+    }
+    .middle-left{
+        outline: 1px solid #9F9F9F;
+        position: relative;
+        top: 0px;
+        width: 40%;
+        height: 500px;
+        background-color: #ffff;
+    }
+    .middle-right{
+          position: absolute;
+          top: 0px;
+          left: 500px;
+          width: 60%;
+          height: 500px;
+          overflow: auto;
+    }
+        .middle-right::-webkit-scrollbar {
+        width: 10px;
+    }
+    .middle-right::-webkit-scrollbar-thumb {
+        background-color: #2f3542;
+        border-radius: 10px;
+        background-clip: padding-box;
+        border: 2px solid transparent;
+    }
+    .middle-right::-webkit-scrollbar-track {
+        background-color: grey;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px white;
+    }
+
+    .img{
+        display:inline-block;
+        vertical-align:middle;
+    }
+    .bottom{
+        margin-top: 50px;
+        margin-bottom: 20px;
+        outline: 1px solid #fffff;
+        width: 100%;
+        height: 100px;
+        background-color: #ffff;
+        color: #fff;
+    }
+    .top{
+        margin-top: 50px;
+    }
+    .bot{
+        margin: 0px 120px 20px 120px;
+        outline: 1px solid #ffff;
+    }
+    input[type=submit] {
+            width: 50%;
+            background-color: #ffff;
+            color: black;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Gugi', cursive;
+            font-weight: 200;
+            font-size : 1.7em;
+            }
+    input[type=submit]:hover {
+            background-color: #cbcbcb;
+            color: white;
+            font-weight: 400;
+            border: none;
+             }
+   </style>
+</head>
+
+<body>
+    <header>
+    <img src="/media/clothes/closets/logo.PNG" style="display: block; margin: 0 auto; width:230px; height:120px;" >
+    <div style="padding:10px;">
+    </div>
+    <p1>AI! 코디를 부탁해</p1>
+    <p>
+      <a href="{% url 'cloth_list' %}" class="btn1" style="text-decoration:none">MY CLOSET</a>
+      <a href="{% url 'upload_cloth' %}" class="btn1" style="text-decoration:none">NEW CLOTH</a>
+    </p>
+    </header>
+
+    <div style="padding:10px;">
+    </div>
+
+    <main>
+    <div class="container">
+      <div class="middle">
+          <div class ="middle-left">
+            {% if choices %}
+                <img src="{{ choices.closet.url }}" class="top" style="width:200px"/>
+            {% endif %}
+            <div id ="select" class="bot" style="width:200px;" >
+            </div>
+          </div>
+
+          <div class ="middle-right">
+            {% if choices.label == "T" %}
+              {% for rTOP in rT %}
+                <img src="{{ rTOP.closet.url }}"  class="img" style="width:200px" onclick="javascript:loadSelect(this.src,'{{ rTOP.category_num}}')">
+              {% endfor %}
+
+            {% elif choices.label == "B" %}
+              {% for rBottom in rB %}
+                <img src="{{ rBottom.closet.url }}" class="img" style="width:200px" onclick="javascript:loadSelect(this.src,'{{ rBottom.category_num}}')">
+              {% endfor %}
+            {% endif %}
+          </div>
+      </div>
+
+
+      <div class ="bottom">
+        <form action="{% url 'test' %}" method="post">
+            {% csrf_token %}
+            {{ choices.form.as_p }}
+            <input type=hidden name='category_num' value={{ choices }}/>
+            <div id="test"  ></div>
+		    <input type="submit"  name="submit"  value="추 천 코 디 보 러 가 기!"></br>
+	    </form>
+    </div>
+    </div>
+    </main>
+
+</body>
+</html>
+
